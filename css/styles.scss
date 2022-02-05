@@ -1,0 +1,13 @@
+.logo {
+    max-width:500px;
+    &__circle:nth-child(1) {
+        background-color: red;
+    }
+    &__image {
+        &__area {
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+    }
+}
