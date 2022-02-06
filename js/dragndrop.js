@@ -16,7 +16,7 @@ function init() {
 }
 
 function addImageDragEvents() {
-    const circles = document.querySelectorAll('.logo__circle');
+    const circles = document.querySelectorAll('.logo__circles__circle');
     const dropZones = document.querySelectorAll('.logo__container__zones__zone');
     addCircleEvents(circles);
     addDropZoneEvents(dropZones, circles);
@@ -29,6 +29,7 @@ function addCircleEvents(circles) {
         });
         circle.addEventListener('dragend', function(event) {
             curCircle = event.target;
+            event.target.style.opacity = 1;
             checkIfCorrect(event.target.className);
         });
     });
@@ -37,16 +38,20 @@ function addCircleEvents(circles) {
 function addDropZoneEvents(dropZones) {
     dropZones.forEach((zone, i) => {
         zone.addEventListener('dragover', function(event) {
-            event.target.style.opacity = 1;
+            showOutline(event.target, true);
         });
         zone.addEventListener('dragleave', function(event) {
-            event.target.style.opacity = 0;
+            showOutline(event.target, false);
         }) ;
         zone.addEventListener('drop', function(event) {
             curArea = event;
             curArea.index = i;
         }) 
     })
+}
+
+function showOutline(area, showOutline) {
+    showOutline ? area.classList.add('outline') : area.classList.remove('outline');
 }
 
 function checkIfCorrect(circle) {
@@ -61,6 +66,8 @@ function checkIfCorrect(circle) {
     }
     else {
         console.log("That's incorrect!");
+        shakeyShakey();
+        showOutline(curArea.target, false);
         numWrong++;
     }
 }
@@ -70,4 +77,13 @@ function changeElements() {
     curArea.target.appendChild(curCircle);
     curArea.target.style.opacity = 1;
     curCircle.style.opacity = 1;
+    showOutline(curArea.target, false);
+}
+
+function shakeyShakey() {
+    const logoImg = document.querySelector('.logo__container__image');
+    setTimeout(function() {
+        logoImg.classList.remove('shakey');
+    }, 500);
+    logoImg.classList.add('shakey');
 }
