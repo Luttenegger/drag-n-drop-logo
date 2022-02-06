@@ -2,10 +2,6 @@
   max-width: 446px;
 }
 
-.logo__circle:nth-child(1) {
-  background-color: red;
-}
-
 .logo__container {
   position: relative;
 }
