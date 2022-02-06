@@ -1,14 +1,51 @@
 .logo {
-  max-width: 500px;
+  max-width: 446px;
 }
 
 .logo__circle:nth-child(1) {
   background-color: red;
 }
 
-.logo__image__area {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+.logo__container {
+  position: relative;
+}
+
+.logo__container img {
+  width: 100%;
+}
+
+.logo__container__zones__zone {
+  position: absolute;
+  width: 98px;
+  height: 98px;
+  border-radius: 100%;
+  border: 2px solid red;
+  opacity: 0;
+  background-color: rgba(92, 92, 92, 0.459);
+}
+
+.logo__container__zones__zone:nth-child(1) {
+  top: 28%;
+  left: 4%;
+}
+
+.logo__container__zones__zone:nth-child(2) {
+  top: 51%;
+  left: 20%;
+}
+
+.logo__container__zones__zone:nth-child(3) {
+  top: 43%;
+  left: 66%;
+}
+
+.logo__container__zones__zone:nth-child(4) {
+  top: 8%;
+  left: 72%;
+}
+
+.logo__container__zones__zone:nth-child(5) {
+  top: 3.8%;
+  left: 41.7%;
 }
 /*# sourceMappingURL=styles.min.css.map */
