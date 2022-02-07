@@ -1,5 +1,5 @@
-function createLogoHTML() {
-    const app = document.getElementById('app');
+const app = document.getElementById('app');
+function createLogoHTML() { 
     app.innerHTML = `
         <div class="logo__controls">
             <span class="logo__controls__wrong"><strong>Miskates</strong><span id="mistakes"></span></span>

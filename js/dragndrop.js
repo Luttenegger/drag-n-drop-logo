@@ -1,5 +1,9 @@
 window.onload = function() {
- init();
+//Need this to get the page setup for drag and drop events
+    document.addEventListener("dragover", function(event) {
+        event.preventDefault();
+    });
+    init();
 }
 
 let curArea;
@@ -8,10 +12,6 @@ let numWrong = 0;
 let numOfCircles;
 
 function init() {
-    //Need this to get the page setup for drag and drop events
-    document.addEventListener("dragover", function(event) {
-        event.preventDefault();
-      });
     createLogoHTML();
     addImageDragEvents();
     addResetEvent();
@@ -164,8 +164,7 @@ function addResetEvent() {
 }
 
 function reset() {
-    createLogoHTML();
-    addImageDragEvents();
+    init();
     numWrong = 0;
     showAttemptsWrong();
 }
