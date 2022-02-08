@@ -5,16 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drag and Drop Logo</title>
+    <link href="http://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet">
     <link rel="stylesheet" href="css/dist/styles.min.css">
 </head>
 <body>
+    <div class="header" id="header"></div>
     <div class="container">
-        <div class="confetti"></div>
+        <section class="main">
+            <div class="main__info"><h2>Oh no! Our old logo broke! Please help us put it back together!</h2>
+                <p>We left for just 2 seconds to go grab a new logo and wouldn't you know it? Our old logo just broke apart when it heard we were rebranding. </p>
+                <p>Just like people, sometimes, even old logos need some help picking up the pieces to put them back together. Can you help us do it?! We still love you, little guy.</p>
+                <div>
+                    <div class="main__info__controls">
+                        <h3 class="main__info__controls__wrong">Mistakes: <span id="mistakes">0</span></h3>
+                        <span class="main__info__controls__reset">Reset</span>
+                    </div>
+                </div>
+            </div>
+            <div class="main__game">
+                <div class="logo" id="app"></div>
+            </div>
+        </section>
     </div>
-    <div class="logo" id="app">
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/createHTML.js" defer></script>
-    <script src="js/dragndrop.js" defer></script>
+    <script src="js/createHTML.js" type="module" defer></script>
+    <script src="js/dragndrop.js" type="module" defer></script>
 </body>
 </html>

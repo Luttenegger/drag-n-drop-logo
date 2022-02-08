@@ -1,3 +1,6 @@
+import {Game} from './createHTML.js';
+import {Header} from './header.js';
+
 window.onload = function() {
 //Need this to get the page setup for drag and drop events
     document.addEventListener("dragover", function(event) {
@@ -12,7 +15,8 @@ let numWrong = 0;
 let numOfCircles;
 
 function init() {
-    createLogoHTML();
+    Header.createHeader();
+    Game.createHTML();
     addImageDragEvents();
     addResetEvent();
 }
@@ -34,6 +38,7 @@ function addCircleEvents(circles) {
             curCircle = event.target;
             event.target.style.opacity = 1;
             checkIfCorrect(event.target.className);
+            showAttemptsWrong();
         });
     });
 }
@@ -82,7 +87,6 @@ const isValid = (circle) => {
 function throwError() {
     shakeyShakey();
     numWrong++;
-    showAttemptsWrong();
     showMessage('Incorrect', 'error')
 }
 
@@ -103,7 +107,11 @@ function showMessage(message, type, showButton = false, description = '') {
 
 function showAttemptsWrong() {
     const mistakes = document.getElementById('mistakes');
-    mistakes.innerHTML = `${numWrong}`;
+    mistakes.innerHTML = `<span class='${errColor()}'>${numWrong}</span>`;
+}
+
+const errColor = () => {
+    if (numWrong === 0) { return 'no-error';} else {return 'error'};
 }
 
 function changeElements() {
@@ -159,7 +167,7 @@ function shakeyShakey() {
 }
 
 function addResetEvent() {
-    const resetButton = document.querySelector('.logo__controls__reset');
+    const resetButton = document.querySelector('.main__info__controls__reset');
     resetButton.addEventListener('click', reset);
 }
 
