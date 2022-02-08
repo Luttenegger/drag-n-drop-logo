@@ -29,7 +29,6 @@ export let Game = (function() {
                         <div class="logo__dropzones__zones__zone"></div>
                     </div>
                 </div>
-                <div class="logo__message">Message</div>
             </div>
         `;
     }

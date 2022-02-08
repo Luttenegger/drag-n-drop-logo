@@ -13,13 +13,16 @@ let curArea;
 let curCircle;
 let numWrong = 0;
 let numOfCircles;
+const showAnswers = document.querySelector('.main__info__controls__show-answers');
 
 function init() {
     Header.createHeader();
     Game.createHTML();
     addImageDragEvents();
     addResetEvent();
+    addAnswerEvent();
 }
+
 
 function addImageDragEvents() {
     const circles = document.querySelectorAll('.logo__circles__circle');
@@ -98,6 +101,10 @@ function showMessage(message, type, showButton = false, description = '') {
         width: '350px',
         showConfirmButton: showButton
       })
+    if (message === 0 && showButton) {
+        confetti();
+        document.getElementById('canvas').classList.add('show');
+    }
     if (!showButton) {
         setTimeout(function() {
             Swal.close()
@@ -111,6 +118,10 @@ function showAttemptsWrong() {
 }
 
 const errColor = () => {
+    if (numWrong > 0) {
+        showAnswers.classList.remove('hide')
+        showAnswers.classList.add('show')
+    }
     if (numWrong === 0) { return 'no-error';} else {return 'error'};
 }
 
@@ -156,6 +167,12 @@ const howBad = () => {
         default:
             return "You've never seen this logo, have you?..."
     }
+}
+
+function addAnswerEvent() {
+    showAnswers.addEventListener('click', function() {
+        window.location.replace('https://tinyurl.com/2p95fv84');
+    })
 }
 
 function shakeyShakey() {
