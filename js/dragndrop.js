@@ -77,10 +77,8 @@ function checkIfCorrect(circle) {
 
 //After the circle is dropped, check to see if it's in the correct spot
 const isValidCircle = (circle) => {
-    let isUsed;
-    if (typeof curArea != 'undefined'){
-        isUsed = isCircleUsed(curArea.index);
-    }
+
+    const isUsed = isCircleUsed(curArea.index);
     //Checks to see if the circle dragged was not dropped in any of the acceptable divs
     if (typeof curArea === 'undefined'){
         return false;
@@ -106,11 +104,9 @@ const isValidCircle = (circle) => {
 
 //Checks to see if dropped area already has a circle (to check for same colored circles)
 const isCircleUsed = (index) => {
-    console.log(index);
     let isUsed = false;
     for (let i = 0; i < usedCircles.length; i++) {
-        if (index === usedCircles[i]) { isUsed = true }
-        break;
+        if (index === usedCircles[i]) { isUsed = true; break;}
     }
     return isUsed;
 }
