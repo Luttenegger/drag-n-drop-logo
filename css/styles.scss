@@ -14,9 +14,11 @@ body {
     padding: 0;
     margin: -10px;
     &__logo {
+        text-align: center;
         max-width: $max-width;
         svg {
-            width: 300px;
+            margin-top: 0.3em;
+            width: 200px;
             padding:1em;
         }
     }
@@ -41,41 +43,48 @@ body {
     &__info {
         margin:1em 3em;
         max-width: 502px;
-        h2 {
+        h1 {
             margin-top:0;    
             font-size: 2.5rem;
             font-weight: 200;
             line-height: 1.07;
             margin-bottom: 16px;
         }
-        p {
+        p { 
         font-weight: 200;
         font-size: 1.4rem;
         }
         &__controls {
             margin-bottom:.5em;
             display: flex;
-            justify-content: space-between;
-            h3 {
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            span, button {
+                margin:5px;
+            }
+            &__wrong {
                 margin:0;    
                 font-size: 2.5rem;
                 font-weight: 200;
+                text-align: center;
+                width: 100%;
             }
             &__reset {
-                background-color: $inspiring-blue;
-                color:white;
-                padding: 5px 7px 0px 5px;
-                font-size:2em;
-                font-weight: 200;
-                border-radius:5px;
+                @extend %blue-button;
                 @extend %transition;
             }
             &__reset:hover {
-                cursor: pointer;
-                background-color: $inspiring-darker-blue;
+                @extend %blue-button-hover;
             }
-            &__show-answers:hover {
-                cursor: pointer;
+        }
+        &__show-answers {
+            &__button {
+                @extend %blue-button;
+                @extend %transition;
+            }
+            &__button:hover {
+                @extend %blue-button-hover;
             }
         }
     }
@@ -148,9 +157,22 @@ body {
     .container {
         margin-top:2em;
     }
+    .header {
+        &__logo {
+            text-align: left;
+            svg {
+                width: 300px;
+            }
+        }
+    }
     .main {
         &__info {
             margin:0em 3em 1em 0em;
+            &__controls {
+                &__wrong {
+                    font-size: 2.5em;
+                }
+            }
         }
     }
 }

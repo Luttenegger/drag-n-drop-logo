@@ -3,14 +3,6 @@
   background-color: rgba(92, 92, 92, 0.459);
 }
 
-.show {
-  display: block;
-}
-
-.hide {
-  display: none;
-}
-
 .error {
   color: #ea3b85;
 }
@@ -184,5 +176,15 @@
     -webkit-transform: rotate(720deg);
             transform: rotate(720deg);
   }
+}
+
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hide {
+  display: none;
 }
 /*# sourceMappingURL=helpers.min.css.map */
